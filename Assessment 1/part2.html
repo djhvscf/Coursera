@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<title>Dating WebSite</title>
+		<style>
+			fieldset {
+				background:lightyellow;
+				border:10px solid yellow;
+				margin-bottom:10px;
+				width: 720px;
+			}
+			
+			fieldset label {
+				width: 180px;
+				display:inline-block;
+				text-align: right;
+				vertical-align: top;
+			}
+			
+			checkbox, radio {
+				width:auto;
+			}
+			
+			textarea {
+				width:360px;
+				height:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<form  enctype="multipart/form-data" action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="get">
+			<fieldset>
+				<legend>Your Face</legend>
+				<label for="file">Your image:</label>
+				<input type="file" id="file" name="file">
+				<br>
+				<label for="preview">Image preview:</label>
+				<img id="preview"><br>
+			</fieldset>
+			<fieldset>
+				<legend>Your General Details</legend>
+				<label for="name">Name: </label>
+				<input type="text" id="name" name="name" placeholder="Your full name" required>
+				<br>
+				<label for="gender">Gender:</label>
+				<input type="radio" id="male" name="gender" value="male" required>
+				<label for="gender">Male</label> 
+				<input type="radio" id="female" name="gender" value="female" required>
+				<label for="gender">Female</label>
+				<br>
+				<label for="age">Age:</label>
+				<input type="number" id="age" name="age" required>
+				<br>
+				<label for="birth">Date of birth:</label>
+				<input type="date" id="birth" name="birth">
+				<br>
+				<label for="color">Favorite color:</label>
+				<input type="color" id="color" name="color">
+				<br>
+				<label for="country">Which country:</label>
+				<select name="select" id="country">
+					<option value="-1" selected></option> 
+					<option value="CostaRica">Costa Rica</option>
+					<option value="Canada">Canada</option>
+					<option value="UK">UK</option>
+					<option value="Spain">Spain</option>
+					<option value="UnitedStates">United States</option>
+				</select>
+				<br>
+			</fieldset>
+			<fieldset>
+				<legend>Your Indicators</legend>
+				<label for="file">Height: </label>
+				<label>Short </label>
+				<input type="range" name="height" id="height" min="0" max="100">
+				<label> Tall</label>
+				<br>
+				<label for="file">Salary: </label>
+				<label>Poor </label>
+				<input type="range" id="salary" name="salary" min="0" max="100">
+				<label> Rich</label>
+				<br>
+			</fieldset>
+			<fieldset>
+				<legend>Your Contact Information</legend>
+				<label for="email">Email:</label>
+				<input type="email" name="email" id="email" required>
+				<br>
+				<label for="mobile">Mobile:</label>
+				<input type="tel" id="mobile" name="mobile">
+				<br>
+				<label for="address">Address:</label>
+				<textarea id="address" name="address"></textarea>
+				<br>
+				<label>Method to contact you:</label>
+				<input type="checkbox" name="chkEmail" id="chkEmail">
+				<label for="chkEmail">Email</label> 
+				<input type="checkbox" name="whatsapp" id="whatsapp">
+				<label for="whatsapp">Whatsapp</label> 
+				<input type="checkbox" id="inAppChat" name="inAppChat">
+				<label for="inAppChat">In-app chat</label> 
+				<br>
+			</fieldset>
+			<input type="submit" id="submit" name="submit" text="Submit">
+		</form>
+		<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+	</body>
+</html>
