@@ -62,10 +62,6 @@ body{
     color:#000000;
 }
 
-.chkBox-navbar {
-	color: #FFFFFF;
-}
-
 .tab-content {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -75,4 +71,17 @@ body{
 
 .affix {
     top:100px;
+}
+
+.carousel {
+    background:#1A237E;
+}
+.carousel .item {
+  height: 300px;
+}
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
 }
