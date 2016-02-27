@@ -1,10 +1,15 @@
 'use strict';
 angular.module('confusionApp', [])
 
-        .controller('menuController', function() {
-                        this.tab = 1;
-            this.filtText = '';
-            var dishes=[
+        .controller('MenuController', ['$scope', function($scope) {
+                        $scope.tab = 1;
+            $scope.filtText = '';
+			$scope.showDetails = false;
+
+            $scope.toggleDetails = function() {
+                $scope.showDetails = !$scope.showDetails;
+            };
+            $scope.dishes=[
                          {
                           name:'Uthapizza',
                           image: 'images/uthapizza.png',
@@ -42,24 +47,45 @@ angular.module('confusionApp', [])
                            comment: ''
                         }
                         ]; 
-             this.dishes = dishes;
+             
 
-             this.select = function(setTab) {
-                this.tab = setTab;
+             $scope.select = function(setTab) {
+                $scope.tab = setTab;
                 if (setTab === 2) {
-                    this.filtText = "appetizer";
+                    $scope.filtText = "appetizer";
                 }
                 else if (setTab === 3) {
-                    this.filtText = "mains";
+                    $scope.filtText = "mains";
                 }
                 else if (setTab === 4) {
-                    this.filtText = "dessert";
+                    $scope.filtText = "dessert";
                 }
                 else {
-                    this.filtText = "";
+                    $scope.filtText = "";
                 }
             };
-            this.isSelected = function (checkTab) {
-                return (this.tab === checkTab);
+            $scope.isSelected = function (checkTab) {
+                return ($scope.tab === checkTab);
             };
-        });
+        }]).controller('ContactController', ['$scope', function($scope) {
+				$scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
+				var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
+				$scope.channels = channels;
+				$scope.invalidChannelSelection = false;
+		}]).controller('FeedbackController', ['$scope', function($scope) {
+				$scope.sendFeedback = function() {
+				console.log($scope.feedback);
+				if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel) {
+					$scope.invalidChannelSelection = true;
+                    console.log('incorrect');
+                }
+                else {
+                    $scope.invalidChannelSelection = false;
+                    $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
+                    $scope.feedback.mychannel="";
+
+                    $scope.feedbackForm.$setPristine();
+                    console.log($scope.feedback);
+                }
+            };
+        }]);
